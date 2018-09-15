@@ -1,11 +1,11 @@
-package com.example.concurrent.user;
+package com.example.concurrent.enums;
 
 public enum Rounds {
     RoundA {
         @Override
-        public void goExecute(Integer userID) {
+        public void goExecute(Integer userID, String stats) {
             System.out.println(Thread.currentThread().getThreadGroup().getName() + ":"
-                    + Thread.currentThread().getName() + RoundA.name());
+                    + Thread.currentThread().getName() + RoundA.name() + stats);
             WalletTransactions.BALANCE.doTransact(userID, null);
 
             WalletTransactions.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount());
@@ -22,9 +22,9 @@ public enum Rounds {
     },
     RoundB {
         @Override
-        public void goExecute(Integer userID) {
+        public void goExecute(Integer userID, String stats) {
             System.out.println(Thread.currentThread().getThreadGroup().getName() + ":"
-                    + Thread.currentThread().getName() + ":" + RoundB.name());
+                    + Thread.currentThread().getName() + ":" + RoundB.name() + stats);
             WalletTransactions.BALANCE.doTransact(userID, null);
 
             WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount());
@@ -41,9 +41,9 @@ public enum Rounds {
     },
     RoundC {
         @Override
-        public void goExecute(Integer userID) {
+        public void goExecute(Integer userID, String stats) {
             System.out.println(Thread.currentThread().getThreadGroup().getName() + ":"
-                    + Thread.currentThread().getName() + RoundC.name());
+                    + Thread.currentThread().getName() + RoundC.name() + stats);
 
             WalletTransactions.BALANCE.doTransact(userID, null);
 
@@ -60,6 +60,6 @@ public enum Rounds {
         }
     };
 
-    public abstract void goExecute(Integer userID);
+    public abstract void goExecute(Integer userID, String stats);
 
 }

@@ -1,10 +1,14 @@
-package com.example.concurrent.user;
+package com.example.concurrent.user.runner;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.example.concurrent.enums.AMOUNT;
+import com.example.concurrent.enums.Rounds;
+import com.example.concurrent.enums.WalletTransactions;
 
 @RunWith(JUnit4.class)
 public class WalletTransactionsTest {

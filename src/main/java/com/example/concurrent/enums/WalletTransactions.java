@@ -1,9 +1,9 @@
-package com.example.concurrent.user;
+package com.example.concurrent.enums;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-enum WalletTransactions {
+public enum WalletTransactions {
 
     DEPOSIT {
         @Override

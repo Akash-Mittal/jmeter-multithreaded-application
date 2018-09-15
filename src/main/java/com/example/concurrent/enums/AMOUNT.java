@@ -1,4 +1,4 @@
-package com.example.concurrent.user;
+package com.example.concurrent.enums;
 
 public enum AMOUNT {
     ZERO(Float.valueOf(0)), HUNDERED(Float.valueOf(100)), TWOHUNDERED(Float.valueOf(200)), THREEHUNDERED(
