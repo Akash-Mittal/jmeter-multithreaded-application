@@ -24,7 +24,7 @@ public enum Rounds {
         @Override
         public void goExecute(Integer userID) {
             System.out.println(Thread.currentThread().getThreadGroup().getName() + ":"
-                    + Thread.currentThread().getName() + RoundB.name());
+                    + Thread.currentThread().getName() + ":" + RoundB.name());
             WalletTransactions.BALANCE.doTransact(userID, null);
 
             WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount());
