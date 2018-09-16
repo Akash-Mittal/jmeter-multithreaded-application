@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import com.example.concurrent.enums.AMOUNT;
-import com.example.concurrent.enums.Rounds;
-import com.example.concurrent.enums.WalletTransactions;
+import com.example.concurrent.enums.ROUND;
+import com.example.concurrent.enums.TRANSACTION;
 
 @RunWith(JUnit4.class)
 public class WalletTransactionsTest {
@@ -17,82 +17,50 @@ public class WalletTransactionsTest {
     public void testRoundA() {
         Integer userID = 1;
         System.out.println(Thread.currentThread().getThreadGroup().getName() + ":" + Thread.currentThread().getName()
-                + Rounds.RoundA.name());
-        WalletTransactions.BALANCE.doTransact(userID, null);
+                + ROUND.A.name());
+        TRANSACTION.BALANCE.doTransact(userID, null, "");
 
-        WalletTransactions.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.HUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
+        TRANSACTION.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.HUNDERED.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""), Float.valueOf(0F));
+
+        TRANSACTION.WITHDRAW.doTransact(userID, AMOUNT.TWOHUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.HUNDERED.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""), Float.valueOf(0F));
+
+        TRANSACTION.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.TWOHUNDERED.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""),
                 Float.valueOf(0F));
 
-        WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.TWOHUNDERED.getAmount());
-        assertEquals(AMOUNT.HUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
-                Float.valueOf(0F));
+        TRANSACTION.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.HUNDERED.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""), Float.valueOf(0F));
 
-        WalletTransactions.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.TWOHUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
-                Float.valueOf(0F));
-
-        WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.HUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
-                Float.valueOf(0F));
-
-        WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.ZERO.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null), Float.valueOf(0F));
-    }
-
-    @Test
-    public void testRoundC() {
-        Integer userID = 1;
-        System.out.println(Thread.currentThread().getThreadGroup().getName() + ":" + Thread.currentThread().getName()
-                + Rounds.RoundB.name());
-        WalletTransactions.BALANCE.doTransact(userID, null);
-
-        WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.ZERO.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null), Float.valueOf(0F));
-
-        WalletTransactions.DEPOSIT.doTransact(userID, AMOUNT.THREEHUNDERED.getAmount());
-        assertEquals(AMOUNT.THREEHUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
-                Float.valueOf(0F));
-
-        WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.TWOHUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
-                Float.valueOf(0F));
-
-        WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.HUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
-                Float.valueOf(0F));
-
-        WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.ZERO.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null), Float.valueOf(0F));
-
+        TRANSACTION.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.ZERO.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""), Float.valueOf(0F));
     }
 
     @Test
     public void TestRoundC() {
         Integer userID = 1;
         System.out.println(Thread.currentThread().getThreadGroup().getName() + ":" + Thread.currentThread().getName()
-                + Rounds.RoundC.name());
+                + ROUND.C.name());
 
-        WalletTransactions.BALANCE.doTransact(userID, null);
+        TRANSACTION.BALANCE.doTransact(userID, null, "");
 
-        WalletTransactions.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.HUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
+        TRANSACTION.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.HUNDERED.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""), Float.valueOf(0F));
+
+        TRANSACTION.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.TWOHUNDERED.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""),
                 Float.valueOf(0F));
 
-        WalletTransactions.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.TWOHUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
+        TRANSACTION.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.HUNDERED.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""), Float.valueOf(0F));
+
+        TRANSACTION.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.TWOHUNDERED.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""),
                 Float.valueOf(0F));
 
-        WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.HUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
-                Float.valueOf(0F));
-
-        WalletTransactions.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount());
-        assertEquals(AMOUNT.TWOHUNDERED.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null),
-                Float.valueOf(0F));
-
-        WalletTransactions.WITHDRAW.doTransact(userID, AMOUNT.TWOHUNDERED.getAmount());
-        assertEquals(AMOUNT.ZERO.getAmount(), WalletTransactions.BALANCE.doTransact(userID, null), Float.valueOf(0F));
+        TRANSACTION.WITHDRAW.doTransact(userID, AMOUNT.TWOHUNDERED.getAmount(), "");
+        assertEquals(AMOUNT.ZERO.getAmount(), TRANSACTION.BALANCE.doTransact(userID, null, ""), Float.valueOf(0F));
 
     }
 }
