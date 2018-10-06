@@ -1,20 +1,22 @@
 package com.example.concurrent.enums;
 
+import java.math.BigDecimal;
+
 public enum AMOUNT {
-    ZERO(Float.valueOf(0)), HUNDERED(Float.valueOf(100)), TWOHUNDERED(Float.valueOf(200)), THREEHUNDERED(
-            Float.valueOf(300)), FOURHUNDERED(Float.valueOf(400)), FIVEHUNDERED(Float.valueOf(5000));
+    ZERO(BigDecimal.valueOf(0)), HUNDERED(BigDecimal.valueOf(100)), TWOHUNDERED(BigDecimal.valueOf(200)), THREEHUNDERED(
+            BigDecimal.valueOf(300)), FOURHUNDERED(BigDecimal.valueOf(400)), FIVEHUNDERED(BigDecimal.valueOf(5000));
 
-    private Float amount;
+    private BigDecimal amount;
 
-    public Float getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    private AMOUNT(Float amount) {
+    private AMOUNT(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public void setAmount(Float amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 }
