@@ -14,8 +14,8 @@ public class RequestRunner implements Runner {
 
     public void run() {
         for (int i = 1; i <= numberOfRounds; i++) {
-            Thread thread = new Thread(new RoundRunner(stats + " Round Number:" + i, userID));
-            pool.execute(thread);
+            // Thread thread = new Thread(new RoundRunner(stats + " Round Number:" + i, userID));
+            // pool.execute(thread);
         }
     }
 
