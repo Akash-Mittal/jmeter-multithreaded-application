@@ -10,12 +10,12 @@ public class RunnerClient {
 
     public static void main(String[] args) throws InterruptedException {
         Properties props = System.getProperties();
-        Integer numberOfUsers = Integer.valueOf(props.getProperty("wallet.users", "2"));
+        Long numberOfUsers = Long.valueOf(props.getProperty("wallet.users", "2000000000000"));
         Integer numberOfThread = Integer.valueOf(props.getProperty("wallet.threads", "2"));
         Integer numberOfRounds = Integer.valueOf(props.getProperty("wallet.rounds", "2"));
 
-        for (int user = 1; user <= numberOfUsers; user++) {
-            Thread thread = new Thread(new UserRunner("", user));
+        for (Long user = 1L; user <= numberOfUsers; user++) {
+            Thread thread = new Thread(new UserRunner(user));
             Runner.pool.execute(thread);
         }
         Runner.pool.awaitTermination(5, TimeUnit.SECONDS);

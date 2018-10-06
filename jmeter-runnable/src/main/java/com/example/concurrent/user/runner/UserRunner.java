@@ -1,35 +1,18 @@
 package com.example.concurrent.user.runner;
 
 public class UserRunner implements Runner {
-    private String stats;
-    private Integer userID;
+    private Long userID;
 
+    public UserRunner(Long userID) {
+        super();
+        this.userID = userID;
+    }
+
+    @Override
     public void run() {
         for (int i = 1; i <= numberOfUsers; i++) {
-            pool.execute(new RequestRunner("User:" + userID + " Request Number:" + i, userID));
+            pool.execute(new RequestRunner(userID));
         }
-    }
-
-    public UserRunner(String stats, Integer userID) {
-        super();
-        this.stats = stats;
-        this.userID = userID;
-    }
-
-    public String getStats() {
-        return stats;
-    }
-
-    public void setStats(String stats) {
-        this.stats = stats;
-    }
-
-    public Integer getUserID() {
-        return userID;
-    }
-
-    public void setUserID(Integer userID) {
-        this.userID = userID;
     }
 
 }
