@@ -11,7 +11,7 @@
 
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.example.concurrent</groupId>
+	<groupId>com.example.concurrent.runnable</groupId>
 	<artifactId>jmeter-runnable</artifactId>
 	<name>Jmeter Runnable</name>
 	<version>0.0.1-SNAPSHOT</version>
@@ -20,26 +20,8 @@
 
 	<url>http://maven.apache.org</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-	</properties>
 	<dependencies>
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>26.0-jre</version>
-		</dependency>
 
 
 	</dependencies>
@@ -52,7 +34,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass> com.example.concurrent.user.MainClient</mainClass>
+							<mainClass> com.example.concurrent.runnable.MainClient</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

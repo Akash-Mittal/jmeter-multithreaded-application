@@ -50,4 +50,10 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<modules>
+		<module>jmeter-completable</module>
+		<module>jmeter-listenable-future</module>
+		<module>jmeter-runnable</module>
+	</modules>
 </project>
