@@ -5,7 +5,7 @@ public class UserRunner implements Runner {
     private Integer userID;
 
     public void run() {
-        for (int i = 1; i <= numberOfRequests; i++) {
+        for (int i = 1; i <= numberOfUsers; i++) {
             pool.execute(new RequestRunner("User:" + userID + " Request Number:" + i, userID));
         }
     }
