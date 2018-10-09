@@ -30,7 +30,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass> com.example.concurrent.runnable.MainClient</mainClass>
+							<mainClass> com.example.concurrent.client.RunnerClient</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
