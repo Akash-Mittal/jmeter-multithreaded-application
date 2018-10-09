@@ -1,18 +1,24 @@
-package com.example.concurrent.user.runner;
+package com.example.concurrent.runner;
+
+import java.util.logging.Logger;
 
 public class UserRunner implements Runner {
-    private Long userID;
+	private Integer numberOfUsers;
+	private Integer numberOfRequests;
 
-    public UserRunner(Long userID) {
-        super();
-        this.userID = userID;
-    }
+	private static final Logger logger = Logger.getLogger(UserRunner.class.getSimpleName());
 
-    @Override
-    public void run() {
-        for (int i = 1; i <= numberOfUsers; i++) {
-            pool.execute(new RequestRunner(userID));
-        }
-    }
+	public UserRunner(Integer numberOfUsers, Integer numberOfRequests) {
+		super();
+		this.numberOfUsers = numberOfUsers;
+		this.numberOfRequests = numberOfRequests;
+	}
+
+	@Override
+	public void run() {
+		for (Long i = 1L; i <= numberOfUsers; i++) {
+			pool.execute(new RequestRunner(i, numberOfRequests));
+		}
+	}
 
 }

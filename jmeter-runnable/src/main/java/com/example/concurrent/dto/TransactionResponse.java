@@ -5,46 +5,51 @@ import java.math.BigDecimal;
 import com.example.concurrent.enums.STATUS;
 
 public class TransactionResponse {
-    private STATUS status;
-    private BigDecimal balance;
+	@Override
+	public String toString() {
+		return "TransactionResponse [status=" + status + ", balance=" + balance + "]";
+	}
 
-    public STATUS getStatus() {
-        return status;
-    }
+	private STATUS status;
+	private BigDecimal balance;
 
-    public void setStatus(STATUS status) {
-        this.status = status;
-    }
+	public STATUS getStatus() {
+		return status;
+	}
 
-    public BigDecimal getBalance() {
-        return balance;
-    }
+	public void setStatus(STATUS status) {
+		this.status = status;
+	}
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
+	public BigDecimal getBalance() {
+		return balance;
+	}
 
-    public static class Builder {
-        private STATUS status;
-        private BigDecimal balance;
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
 
-        public Builder status(STATUS status) {
-            this.status = status;
-            return this;
-        }
+	public static class Builder {
+		private STATUS status;
+		private BigDecimal balance;
 
-        public Builder balance(BigDecimal balance) {
-            this.balance = balance;
-            return this;
-        }
+		public Builder status(STATUS status) {
+			this.status = status;
+			return this;
+		}
 
-        public TransactionResponse build() {
-            return new TransactionResponse(this);
-        }
-    }
+		public Builder balance(BigDecimal balance) {
+			this.balance = balance;
+			return this;
+		}
 
-    private TransactionResponse(Builder builder) {
-        this.status = builder.status;
-        this.balance = builder.balance;
-    }
+		public TransactionResponse build() {
+			return new TransactionResponse(this);
+		}
+	}
+
+	private TransactionResponse(Builder builder) {
+		this.status = builder.status;
+		this.balance = builder.balance;
+	}
 }

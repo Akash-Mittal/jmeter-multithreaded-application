@@ -1,4 +1,4 @@
-package com.example.concurrent.user.runner;
+package com.example.concurrent.runner;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
