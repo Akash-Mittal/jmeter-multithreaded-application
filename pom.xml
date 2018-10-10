@@ -45,6 +45,6 @@
 	<modules>
 		<module>jmeter-completable</module>
 		<module>jmeter-listenable-future</module>
-		<module>jmeter-runnable</module>
+		<module>jmeter-callable</module>
 	</modules>
 </project>
