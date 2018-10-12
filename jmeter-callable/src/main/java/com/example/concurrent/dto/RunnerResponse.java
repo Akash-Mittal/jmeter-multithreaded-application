@@ -1,37 +1,18 @@
 package com.example.concurrent.dto;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public final class RunnerResponse {
-	private final ExecutorService pool;
-	private final Integer numberOfUsers;
-	private final Integer numberOfRequests;
-	private final Integer numberOfRounds;
+	private TransactionResponse response;
 
-	public RunnerResponse(Integer numberOFThreads, Integer numberOfUsers, Integer numberOfRequests,
-			Integer numberOfRounds) {
+	public RunnerResponse(TransactionResponse response) {
 		super();
-		this.pool = Executors.newFixedThreadPool(numberOFThreads);
-		this.numberOfUsers = numberOfUsers;
-		this.numberOfRequests = numberOfRequests;
-		this.numberOfRounds = numberOfRounds;
+		this.response = response;
 	}
 
-	public ExecutorService getPool() {
-		return pool;
+	public TransactionResponse getResponse() {
+		return response;
 	}
 
-	public Integer getNumberOfUsers() {
-		return numberOfUsers;
+	public void setResponse(TransactionResponse response) {
+		this.response = response;
 	}
-
-	public Integer getNumberOfRequests() {
-		return numberOfRequests;
-	}
-
-	public Integer getNumberOfRounds() {
-		return numberOfRounds;
-	}
-
 }
