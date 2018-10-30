@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.example.concurrent.dto.TransactionResponse;
-import com.google.caliper.Benchmark;
 
 public class TRANSACTIONTest {
 
@@ -18,7 +17,6 @@ public class TRANSACTIONTest {
 	}
 
 	@Test
-	@Benchmark
 	public void testDepositWithdrawBalanceSuccess() {
 		TransactionResponse transactionResponse = TRANSACTION.DEPOSIT.doTransact(userID, AMOUNT.HUNDERED.getAmount());
 		assertEquals(STATUS.SUCCESS, transactionResponse.getStatus());
